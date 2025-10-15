@@ -5,6 +5,27 @@ on:
     branches: 
       - main
   workflow_dispatch:
+    inputs:
+      test:
+        description: "It's nice to see this description"
+        required: true
+      loglevel:
+        description: "Log level"
+        default: info
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      testbuild:
+        description: "It's a test build"
+        required: true
+        type: boolean
+      environment:
+        description: "Env to deploy"
+        type: environment
+        required: true         
+        
 
 jobs:
   MyFirstJob:
@@ -14,7 +35,7 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v5.0.0
-
+      # comment
       - run: |
           echo "This repository ${{ github.repository }} contains the following files:"
           tree -a
