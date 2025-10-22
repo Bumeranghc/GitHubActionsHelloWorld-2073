@@ -24,7 +24,9 @@ on:
       environment:
         description: "Env to deploy"
         type: environment
-        required: true         
+        required: true
+  repository_dispatch:
+    types: ["coffee", "tea"]
         
 
 jobs:
