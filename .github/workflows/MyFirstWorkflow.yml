@@ -27,13 +27,27 @@ on:
         
 
 jobs:
+  matrix_super_job:
+    name: Super Efficient Build
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        os_version: [macos-latest, ubuntu-latest]
+        node_version: [20, 22, 24]
+    runs-on: ${{ matrix.os_version }}
+    steps:
+      - name: Install NodeJS
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node_version }}
+
   MyFirstJob:
     runs-on: ubuntu-latest
     steps:
       - name: Hello World
-        run: Write-Host("Help")
+        run: echo "Hello World"
         working-directory: ./temp
-        shell: pwsh
 
       - name: Checkout
         uses: actions/checkout@v5.0.0
