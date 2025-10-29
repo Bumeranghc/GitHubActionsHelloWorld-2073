@@ -100,6 +100,9 @@ jobs:
         run: | 
           echo "Post"
           echo "test_results=passed" >> "$GITHUB_OUTPUT"
+          echo "sleep_time=15"
+          echo "::add-mask::$test_results"
+          echo "::add-mask::$sleep_time"
 
       - if: failure()
         run: |
@@ -115,5 +118,6 @@ jobs:
 
       - if: always()
         run: |
-          echo "Test results: ${{ steps.test_step.outputs.test_results }}" 
+          echo "Test results: ${{ steps.test_step.outputs.test_results }}"
+          sleep ${{ steps.test_step.outputs.sleep_time }}
           echo "Always"
