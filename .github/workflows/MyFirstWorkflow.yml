@@ -22,8 +22,6 @@ on:
         description: "Env to deploy"
         type: environment
         required: true
-  repository_dispatch:
-    types: ["coffee", "tea"]
         
 env:
   TEST_ACROSS_JOBS: test
@@ -103,7 +101,7 @@ jobs:
         run: | 
           echo "Post"
           test_results=$((RANDOM))
-          sleep_time=15
+          sleep_time=1
           echo "::add-mask::$test_results"
           echo "::add-mask::$sleep_time"
           echo "test_results=$test_results" >> "$GITHUB_OUTPUT"
