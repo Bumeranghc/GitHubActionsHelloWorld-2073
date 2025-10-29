@@ -99,7 +99,7 @@ jobs:
       - run: echo "Post"; exit 1
 
       - if: failure()
-        run: echo "::error file=MyFirstWorkflow.yaml,line=102::Failed!"
+        run: echo "::error file=MyFirstWorkflow.yaml,line=99::Failed!"
 
       - if: cancelled()
         run: echo "Cancelled" 
