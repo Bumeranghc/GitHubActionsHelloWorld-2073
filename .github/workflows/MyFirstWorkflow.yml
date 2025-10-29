@@ -96,10 +96,10 @@ jobs:
   Post:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Post"; sleep 30; exit 1
+      - run: echo "Post"; exit 1
 
       - if: failure()
-        run: echo "Failed!"
+        run: echo "::error file=MyFirstWorkflow.yaml,line=102::Failed!"
 
       - if: cancelled()
         run: echo "Cancelled" 
