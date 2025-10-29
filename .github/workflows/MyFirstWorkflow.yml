@@ -46,7 +46,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Hello World
-        run: echo "Hello World"
+        run: |
+          echo "TEST_ACROSS_JOBS=test" >> "$GITHUB_ENV"
+          echo "Hello World"
 
       - name: Checkout
         uses: actions/checkout@v5.0.0
