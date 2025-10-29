@@ -47,7 +47,6 @@ jobs:
     steps:
       - name: Hello World
         run: echo "Hello World"
-        working-directory: ./temp
 
       - name: Checkout
         uses: actions/checkout@v5.0.0
@@ -99,6 +98,6 @@ jobs:
     steps:
       - if: success()
         run: echo "Success!"
-        
+
       - if: always()
         run: echo "Always"
