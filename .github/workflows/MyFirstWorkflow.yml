@@ -102,6 +102,7 @@ jobs:
         run: |
           echo "::debug::Debug message" 
           echo "::error file=MyFirstWorkflow.yaml,line=99::Failed!"
+          echo "::warning file=MyFirstWorkflow.yaml,line=99,endLine=105,col=76,endColumn=111,title=warning_title::warning message"
 
       - if: cancelled()
         run: echo "Cancelled" 
