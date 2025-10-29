@@ -96,7 +96,10 @@ jobs:
   Post:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Post"; exit 1
+      - id: test_step
+        run: | 
+          echo "Post"
+          echo "test_results=passed" >> "$GITHUB_OUTPUT"
 
       - if: failure()
         run: |
@@ -111,4 +114,6 @@ jobs:
         run: echo "Success!"
 
       - if: always()
-        run: echo "Always"
+        run: |
+          echo "Test results: ${{ steps.test_step.outputs.test_results }}" 
+          echo "Always"
