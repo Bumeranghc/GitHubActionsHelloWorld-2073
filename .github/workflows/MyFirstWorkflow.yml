@@ -25,6 +25,8 @@ on:
   repository_dispatch:
     types: ["coffee", "tea"]
         
+env:
+  TEST_ACROSS_JOBS: test
 
 jobs:
   matrix_super_job:
@@ -47,7 +49,6 @@ jobs:
     steps:
       - name: Hello World
         run: |
-          echo "TEST_ACROSS_JOBS=test" >> "$GITHUB_ENV"
           echo "Hello World"
 
       - name: Checkout
